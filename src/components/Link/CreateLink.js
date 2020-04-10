@@ -5,7 +5,7 @@ import FirebaseContext from "../../firebase/context";
 
 const INITIAL_STATE = {
   description: "",
-  url: "",
+  url: ""
 };
 
 function CreateLink(props) {
@@ -26,11 +26,12 @@ function CreateLink(props) {
         description,
         postedBy: {
           id: user.uid,
-          name: user.displayName,
+          name: user.displayName
         },
+        voteCount: 0,
         votes: [],
         comments: [],
-        created: Date.now(),
+        created: Date.now()
       };
       firebase.db.collection("links").add(newLink);
       props.history.push("/");
